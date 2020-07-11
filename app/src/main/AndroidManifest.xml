@@ -25,6 +25,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".activities.GameActivity"/>
+
         <activity
             android:name="com.cep.burgerjoint.activities.BurgerDetailsActivity"
             android:theme="@style/AppTheme">

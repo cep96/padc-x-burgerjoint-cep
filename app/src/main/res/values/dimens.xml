@@ -34,4 +34,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="margin_xxxlarge">64dp</dimen>
     <dimen name="margin_94">96dp</dimen>
+    <dimen name="game_burger_size">80dp</dimen>
+    <dimen name="block_width">150dp</dimen>
+    <dimen name="block_height">60dp</dimen>
 </resources>
