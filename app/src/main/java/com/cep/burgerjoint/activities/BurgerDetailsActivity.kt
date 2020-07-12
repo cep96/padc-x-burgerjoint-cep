@@ -3,7 +3,9 @@ package com.cep.burgerjoint.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Window
 import android.view.animation.AnimationUtils
+import android.transition.Explode
 import com.bumptech.glide.Glide
 import com.cep.burgerjoint.R
 import com.cep.burgerjoint.data.vos.BurgerVO
@@ -30,11 +32,22 @@ class BurgerDetailsActivity : BaseActivity(),BurgerDetailsView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_burger_details)
+        setUpTransitions()
         setUpPresenter()
         setUpListeners()
         val burgerId = intent.getIntExtra(EXTRA_BURGER_ID, 0)
 
         mPresenter.onBurgerDetailsUiReady(this, burgerId)
+    }
+
+    private fun setUpTransitions() {
+        with(window){
+            requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+            val explode = Explode()
+            explode.duration = 200
+            enterTransition = explode
+            exitTransition = explode
+        }
     }
 
     private fun setUpListeners(){

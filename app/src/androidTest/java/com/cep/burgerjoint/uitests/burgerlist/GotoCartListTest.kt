@@ -20,7 +20,7 @@ class GotoCartListTest {
     private val activityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Before
-    fun setUp(){
+    open fun setUp(){
         activityTestRule.launchActivity(Intent())
     }
 

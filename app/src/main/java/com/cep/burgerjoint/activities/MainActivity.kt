@@ -23,6 +23,8 @@ import com.cep.burgerjoint.mvp.presenters.MainPresenter
 import com.cep.burgerjoint.mvp.presenters.impls.MainPresenterImpl
 import com.cep.burgerjoint.mvp.views.MainView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.toolbar
+import kotlinx.android.synthetic.main.view_item_burger.*
 
 class MainActivity : BaseActivity(), MainView {
 
@@ -76,8 +78,9 @@ class MainActivity : BaseActivity(), MainView {
 
     override fun navigateToBurgerDetailsScreenWithAnimation(burgerId: Int, burgerImageView: ImageView) {
         val imagePair = Pair.create(burgerImageView as View, "tBurgerImage")
+        val namePair = Pair.create(tvBurgerName as View, "tBurgerName")
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,imagePair)
-        ActivityCompat.startActivity(this,BurgerDetailsActivity.newIntent(this,burgerId),options.toBundle())
+        startActivity(BurgerDetailsActivity.newIntent(this,burgerId),options.toBundle())
     }
 
     override fun navigateToCartScreen() {
